@@ -1,0 +1,35 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = slim
+	email = soonlim@gmail.com
+[core]
+	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+[pull]
+	rebase = false
+[fetch]
+	prune = false
+[alias] 
+	co =checkout
+	br =branch
+	cm =commit
+	st =stage
+	unstage = reset HEAD --
+    dog = "git log --all --decorate --oneline -graph"
+     g="git log --decorate --oneline --graph"
+    lg = "!f(){ git log --oneline --graph --decorate $1 $2 `git merge-base $1 $2`^! ;}; f"    
+[rebase]
+	autoStash = false
+[merge]
+	guitool = vscode
+[mergetool "vscode"]
+	cmd = \"C:/Users/slim81/AppData/Local/Programs/Microsoft VS Code/code.exe\"\" --wait \"$MERGED\"
+	path = C:/Users/slim81/AppData/Local/Programs/Microsoft VS Code/code.exe\"
+[diff]
+	guitool = vscode
+[difftool "vscode"]
+	path = C:/Users/slim81/AppData/Local/Programs/Microsoft VS Code/code.exe\"
+	cmd = \"C:/Users/slim81/AppData/Local/Programs/Microsoft VS Code/code.exe\"\" --wait --diff \"$LOCAL\" \"$REMOTE\"
